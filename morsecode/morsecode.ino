@@ -1,4 +1,4 @@
-#define UNIT_DURATION_MS 300
+#define UNIT_DURATION_MS 200
 #define DOT_DURATION_MS UNIT_DURATION_MS
 #define DASH_DURATION_MS  (UNIT_DURATION_MS * 3)
 #define DEFAULT_SPACE_MS  UNIT_DURATION_MS
@@ -67,31 +67,31 @@ String user_input = "";
 
 
 void dot() {
-    Serial.println("DOT");
+    //Serial.println("DOT");
     digitalWrite(LED_BUILTIN, HIGH);
     delay(DOT_DURATION_MS); 
 }
 
 void dash() {
-    Serial.println("DASH");
+    //Serial.println("DASH");
     digitalWrite(LED_BUILTIN, HIGH);  
     delay(DASH_DURATION_MS);
 }
 
 void default_space() {
-  Serial.println("PAUSE");
+  //Serial.println("PAUSE");
   digitalWrite(LED_BUILTIN, LOW);
   delay(DEFAULT_SPACE_MS);
 }
 
 void letter_space() {
-  Serial.println("LETTER PAUSE");
+  //Serial.println("LETTER PAUSE");
   digitalWrite(LED_BUILTIN, LOW);
   delay(LETTER_SPACE_MS);
 }
 
 void word_space() {
-  Serial.println("WORD PAUSE");
+  //Serial.println("WORD PAUSE");
   digitalWrite(LED_BUILTIN, LOW);
   delay(WORD_SPACE_MS);
 }
@@ -105,8 +105,8 @@ CodeAndLength next_letter() {
   char c = user_input[letter_index];
   uint8_t letter = (uint8_t)c;
 
-  Serial.print("Next letter is: ");
-  Serial.println(c);
+  // Serial.print("Next letter is: ");
+  // Serial.println(c);
 
   // Check for letter
   if (letter > 96 && letter < 123)
@@ -199,7 +199,7 @@ void loop() {
         str.trim();
         str.toLowerCase();
 
-        Serial.print("I received: ");
+        //Serial.print("I received: ");
         Serial.println(str);
 
         user_input = str;
