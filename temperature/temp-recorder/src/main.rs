@@ -28,9 +28,6 @@ fn main() -> Result<(), Box<dyn Error>> {
     // Print headers to the CSV file
     wtr.write_record(["Timestamp (ms)", "Temperature (°F)"])?;
 
-    // Record data for 12 minutes
-    let start_time = SystemTime::now();
-    let duration = Duration::from_secs(720); // 12 minutes
     let mut buffer: Vec<u8> = Vec::new();
     let mut read_buffer: [u8; 128] = [0; 128];
 
@@ -47,7 +44,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     match port {
         Ok(mut port) => {
-            while start_time.elapsed().unwrap() < duration {
+            loop {
                 match port.read(read_buffer.as_mut_slice()) {
                     Ok(bytes_read) => {
                         buffer.extend_from_slice(&read_buffer[..bytes_read]);
