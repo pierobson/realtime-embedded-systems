@@ -28,9 +28,9 @@ fn main() -> Result<(), Box<dyn Error>> {
     // Print headers to the CSV file
     wtr.write_record(["Timestamp (ms)", "Temperature (°F)"])?;
 
-    // Record data for 10 minutes
+    // Record data for 12 minutes
     let start_time = SystemTime::now();
-    let duration = Duration::from_secs(600); // 10 minutes
+    let duration = Duration::from_secs(720); // 12 minutes
     let mut buffer: Vec<u8> = Vec::new();
     let mut read_buffer: [u8; 128] = [0; 128];
 
