@@ -93,8 +93,6 @@ fn main() -> Result<(), Box<dyn Error>> {
             std::process::exit(-1);
         }
     };
-
-    Ok(())
 }
 
 fn parse_data(line: &str) -> Option<(String, String)> {
