@@ -4,8 +4,6 @@
 
 use panic_halt as _;
 
-use core::sync::atomic::AtomicBool;
-use dht11::{Dht11, Measurement};
 use arduino_hal::{
     clock::{Clock, MHz16},
     delay_ms,
@@ -23,11 +21,15 @@ use arduino_hal::{
     Delay,
 };
 use avr_device::{interrupt::free, atmega328p::{tc1::tccr1b::CS1_A, TC1}};
+use core::sync::atomic::AtomicBool;
+use dht11::{Dht11, Measurement};
+
 
 // Convenience type aliases.
 type Serial = Usart<USART0, Pin<Input, PD0>, Pin<Output, PD1>, MHz16>;
 type Dht11Sensor = Dht11<Pin<OpenDrain, PB3>>;
 
+// Constants and globals.
 const INTERVAL: f32 = 3.33333;
 const PRESCALER: u32 = 1024;
 
@@ -73,7 +75,7 @@ fn TIMER1_COMPA() {
                         temperature,
                         humidity: _,
                     }) => {
-                        TEMPERATURE = temperature; // Save the temperature reading
+                        TEMPERATURE = temperature;  // Save the temperature reading
                         TIMESTAMP = MILLIS_COUNTER; // Get the current time in milliseconds
 
                         set_sensor_ready(true);
@@ -111,8 +113,7 @@ fn main() -> ! {
 
     // Configure the pin the sensor is connected to and delay to make sure it's ready.
     {
-        let mut d11 = pins.d11.into_opendrain_high();
-        d11.set_high();
+        let d11 = pins.d11.into_opendrain_high();
 
         unsafe {
             SENSOR = Some(Sensor {
