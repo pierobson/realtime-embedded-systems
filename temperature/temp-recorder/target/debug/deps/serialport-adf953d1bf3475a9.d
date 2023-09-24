@@ -1,0 +1,10 @@
+X:\dev\school\rt\temperature\temp-recorder\target\debug\deps\serialport-adf953d1bf3475a9.rmeta: C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\lib.rs C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\mod.rs C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\com.rs C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\dcb.rs C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\enumerate.rs C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\error.rs
+
+X:\dev\school\rt\temperature\temp-recorder\target\debug\deps\serialport-adf953d1bf3475a9.d: C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\lib.rs C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\mod.rs C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\com.rs C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\dcb.rs C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\enumerate.rs C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\error.rs
+
+C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\lib.rs:
+C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\mod.rs:
+C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\com.rs:
+C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\dcb.rs:
+C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\enumerate.rs:
+C:\Users\Pierce\.cargo\registry\src\index.crates.io-6f17d22bba15001f\serialport-4.2.2\src\windows\error.rs:
