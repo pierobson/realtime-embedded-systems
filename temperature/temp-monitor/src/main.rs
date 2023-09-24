@@ -33,7 +33,7 @@ type Dht11Sensor = Dht11<Pin<OpenDrain, PB3>>;
 const INTERVAL: f32 = 3.33333;
 const PRESCALER: u32 = 1024;
 
-const CALIBRATION_OFFSET: f32 = 3.0f32;
+const CALIBRATION_OFFSET: f32 = 0.5f32;
 const CALIBRATION_FACTOR: f32 = 1f32;
 
 static mut MILLIS_INCREMENT: u32 = 0u32;
