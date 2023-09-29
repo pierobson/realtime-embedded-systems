@@ -2,7 +2,6 @@ use std::error::Error;
 
 use clap::{Arg, Command};
 use std::io::{self};
-use std::thread::sleep;
 use std::time::Duration;
 
 fn main() -> Result<(), Box<dyn Error>> {

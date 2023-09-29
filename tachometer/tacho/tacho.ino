@@ -1,10 +1,9 @@
 /*
  * Optical Tachometer
  *
- * Uses an IR LED and IR phototransistor to implement an optical tachometer.
- * The IR LED is connected to pin 13 and ran continually. A status LED is connected
- * to pin 12. Pin 2 (interrupt 0) is connected across the IR detector.
- *
+ * 
+ * This is sort of a combination of the code found in http://www.instructables.com/id/Arduino-Based-Optical-Tachometer/
+ * and the DC motor starter code provided with the Elegoo UNO Super Starter Kit: https://www.elegoo.com/blogs/arduino-projects/elegoo-uno-project-super-starter-kit-tutorial 
  * 
  */
 
@@ -20,7 +19,6 @@ volatile int rpmcount;
 volatile int status;
 
 unsigned int rpm;
-
 unsigned long timeold;
 
  void rpm_fun()
@@ -79,9 +77,8 @@ void setup()
    delay(1000);
    //Don't process interrupts during calculations
    detachInterrupt(digitalPinToInterrupt(PHOTODIODE));
-   //Note that this would be 60*1000/(millis() - timeold)*rpmcount if the interrupt
-   //happened once per revolution instead of twice. Other multiples could be used
-   //for multi-bladed propellers or fans
+   
+   // Cast things to float to prevent truncation randomly causing false 0 rpm readings.
    rpm = (unsigned int)((float)20000/(float)(millis() - timeold)*(float)rpmcount);
    timeold = millis();
    rpmcount = 0;
