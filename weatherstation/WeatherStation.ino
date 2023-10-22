@@ -267,9 +267,15 @@ void drawCurrentWeather(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t
   String temp = String(currentWeather.temp, 1) + (IS_METRIC ? "°C" : "°F");
   display->drawString(60 + x, 5 + y, temp);
 
-  display->setFont(Meteocons_Plain_36);
-  display->setTextAlignment(TEXT_ALIGN_CENTER);
-  display->drawString(32 + x, 0 + y, currentWeather.iconMeteoCon);
+  display->setFont(ArialMT_Plain_10);
+  display->setTextAlignment(TEXT_ALIGN_LEFT);
+  String humidity_label = String("Humidity");
+  display->drawString(10 + x, 5 + y, humidity_label);
+
+  display->setFont(ArialMT_Plain_16);
+  display->setTextAlignment(TEXT_ALIGN_LEFT);
+  String humidity = String(currentWeather.humidity) + "%";
+  display->drawString(15 + x, 15 + y, humidity);
 }
 
 
