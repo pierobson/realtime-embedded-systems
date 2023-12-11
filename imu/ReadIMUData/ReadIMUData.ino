@@ -1,5 +1,5 @@
 #include <Arduino_FreeRTOS.h>
-#include <Wire.h>
+#include <SoftwareWire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
@@ -7,11 +7,12 @@
 /* Set the delay between fresh samples */
 #define BNO055_SAMPLERATE_DELAY_MS (100)
 
-#define RPI_ADDRESS 4
+SoftwareWire piWire = SoftwareWire(14, 15);
+SoftwareWire imuWire = SoftwareWire(18, 19);
 
 // Check I2C device address and correct line below (by default address is 0x29 or 0x28)
 //                                   id, address
-Adafruit_BNO055 bno = Adafruit_BNO055(-1, 0x28, &Wire);
+Adafruit_BNO055 bno = Adafruit_BNO055(-1, 0x28, &imuWire);
 
 volatile bool writing = false;
 volatile bool reading = false;
@@ -101,11 +102,11 @@ void TaskIMUReadWrite(void *pvParameters)  // This is a task.
 
   Serial.println("Starting wire");
 
-  Wire.begin(RPI_ADDRESS);
+  imuWire.begin();
   
   Serial.println("Wire started");
 
-  Wire.onRequest(sendIMUData);
+  imuWire.onRequest(sendIMUData);
 
   Serial.println("onRequest set.");
 
@@ -145,7 +146,7 @@ void sendIMUData()
 {
   while(writing){}
   reading = true;
-  Wire.write((byte*)imu_data, sizeof(imu_data));
+  imuWire.write((byte*)imu_data, sizeof(imu_data));
   Serial.print("Yaw: ");
   Serial.print(imu_data[0]);
   Serial.print("Pitch: ");
